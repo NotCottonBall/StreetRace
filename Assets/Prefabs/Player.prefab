@@ -185,12 +185,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCurrentSpeed: 0
-  PlayerRunSpeed: 100
-  PlayerSpeedBoost: 50
-  PlayerSpeedDecay: 25
+  PlayerRunSpeed: 1000
+  PlayerMaxSpeed: 1500
+  PlayerSpeedBoost: 20000
+  PlayerSpeedDecay: 100
+  PlayerSpeedDecayTime: 5
+  PlayerSpeedPenalty: 300
   MouseSensitivity: 1
+  m_keyToPress: {fileID: 0}
   m_playerCamera: {fileID: 0}
   m_cameraOffset: {fileID: 3769535490380754005}
+  m_speedText: {fileID: 0}
+  m_speedSB: {fileID: 0}
 --- !u!1 &5979511339805861314
 GameObject:
   m_ObjectHideFlags: 0
