@@ -105,18 +105,16 @@ public class PlayerController : MonoBehaviour
 
     void movePlayer()
     {
-        float horizontalMove = Input.GetAxisRaw("Horizontal");
-        UnityEngine.Vector3 moveDirection =
-            transform.right * horizontalMove *
-            PlayerCurrentSpeed * Time.deltaTime;
-        m_playerRB.AddForce(moveDirection);
-        
-        if(Input.GetButton("ForwardMove"))
-        {
-            m_playerRB.AddForce(
-                transform.forward * PlayerCurrentSpeed * Time.deltaTime
-            );
-        }        
+        float hMove = Input.GetAxisRaw("Horizontal");
+        float vMove = Input.GetAxisRaw("Vertical");
+
+        UnityEngine.Vector3 moveDir = new UnityEngine.Vector3(
+            hMove, 0.0f, vMove
+        ).normalized * PlayerCurrentSpeed * Time.deltaTime;
+
+        m_playerRB.AddForce(
+            transform.TransformDirection(moveDir), ForceMode.Force
+        );
     }
 
 

@@ -35,7 +35,6 @@ public class TrashObjects : MonoBehaviour
                 
                 Vector3 direction = 
                     (TrashThrowPoint.position - m_spawnPoint.position).normalized;
-                Debug.Log(direction);
                 
                 Rigidbody rb = trashProjectile.GetComponent<Rigidbody>();
                 if(rb == null)
