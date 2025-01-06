@@ -13,11 +13,17 @@ public class PlayerController : MonoBehaviour
     public float PlayerRunSpeed = 1000.0f;
     public float PlayerMaxSpeed = 1500.0f;
     public float PlayerSpeedBoost = 20000.0f;
-    public float PlayerSpeedDecay = 100.0f;
-    public float PlayerSpeedDecayTime = 5.0f;
-    public float PlayerSpeedPenalty = 300.0f;
 
+    [Space]
+    public float PlayerSpeedDecay = 500.0f;
+    public float PlayerSpeedDecayTimeout = 0.1f;
+    public float PlayerSpeedPenalty = 300.0f;
+    private bool isDecaying = false;
+
+    [Space]
     public float MouseSensitivity = 1.0f;
+    [SerializeField] private Camera m_playerCamera;
+    [SerializeField] private Transform m_cameraOffset;
 
     private string[] m_availableKeys = new string[]
     {
@@ -25,15 +31,13 @@ public class PlayerController : MonoBehaviour
         "F", "G",
         "V", "B"
     };
-    
-    [SerializeField] private TextMeshProUGUI m_keyToPress;
-    private Queue<KeyCode> m_keyCodesToPress = new Queue<KeyCode>();
 
-    [SerializeField] private Camera m_playerCamera;
-    [SerializeField] private Transform m_cameraOffset;
+    private Queue<KeyCode> m_keyCodesToPress = new Queue<KeyCode>();
 
     private Rigidbody m_playerRB;
 
+    [Space]
+    [SerializeField] private TextMeshProUGUI m_keyToPressText;
     [SerializeField] private TextMeshProUGUI m_speedText;
     [SerializeField] private Slider m_speedSB;
 
@@ -53,16 +57,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // m_keyToPress.text = m_keyCodesToPress.Peek().ToString() + "";
+        // m_keyToPressText.text = m_keyCodesToPress.Peek().ToString() + "";
         UpdateKeyToPressText();
         if(Input.anyKeyDown)
         {
             if(Input.GetKeyDown(m_keyCodesToPress.Peek()))
             {
-                if(PlayerCurrentSpeed < PlayerMaxSpeed)
-                {
-                    PlayerCurrentSpeed += PlayerSpeedBoost * Time.deltaTime;
-                }
+                PlayerCurrentSpeed += PlayerSpeedBoost * Time.deltaTime;
+                PlayerCurrentSpeed =
+                    Mathf.Min(PlayerCurrentSpeed, PlayerMaxSpeed);
                 m_keyCodesToPress.Dequeue();
                 PickRandomKey();
                 UpdateKeyToPressText();
@@ -76,8 +79,8 @@ public class PlayerController : MonoBehaviour
             )
             { applyPenalty(); }
         }
-        else
-        { StartCoroutine(speedDecayTimer(PlayerSpeedDecayTime)); }
+        else if(!Input.anyKeyDown && !isDecaying)
+        { StartCoroutine(speedDecayTimer(PlayerSpeedDecayTimeout)); }
 
         moveCamera();
         setSpeedUI();
@@ -129,9 +132,9 @@ public class PlayerController : MonoBehaviour
 
     void UpdateKeyToPressText()
     {
-        m_keyToPress.text = "";
+        m_keyToPressText.text = "";
         foreach(KeyCode key in m_keyCodesToPress)
-        { m_keyToPress.text += key.ToString() + " "; }
+        { m_keyToPressText.text += key.ToString() + " "; }
     }
 
     void applyPenalty()
@@ -143,9 +146,12 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator speedDecayTimer(float waitTime)
     {
+        isDecaying = true;
         yield return new WaitForSeconds(waitTime);
         PlayerCurrentSpeed -= PlayerSpeedDecay * Time.deltaTime;
         PlayerCurrentSpeed = Mathf.Max(PlayerCurrentSpeed, 500.0f);
+        Debug.Log("Speed Reduced");
+        isDecaying = false;
     }
 
 

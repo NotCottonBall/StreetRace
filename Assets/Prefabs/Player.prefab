@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2036610194606078161}
   - component: {fileID: 7290924843057922083}
   - component: {fileID: 953775012498072980}
-  - component: {fileID: 2092135528302295270}
+  - component: {fileID: 1489126987555559578}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -189,16 +189,16 @@ MonoBehaviour:
   PlayerRunSpeed: 1000
   PlayerMaxSpeed: 1500
   PlayerSpeedBoost: 20000
-  PlayerSpeedDecay: 100
-  PlayerSpeedDecayTime: 5
+  PlayerSpeedDecay: 500
+  PlayerSpeedDecayTimeout: 0.1
   PlayerSpeedPenalty: 300
   MouseSensitivity: 1
-  m_keyToPress: {fileID: 0}
   m_playerCamera: {fileID: 0}
   m_cameraOffset: {fileID: 3769535490380754005}
+  m_keyToPressText: {fileID: 0}
   m_speedText: {fileID: 0}
   m_speedSB: {fileID: 0}
---- !u!114 &2092135528302295270
+--- !u!114 &1489126987555559578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrashStored: 0
-  ThrowForce: 6000
+  ThrowForce: 8000
   trashObjectPrefab: {fileID: 1525374596489840616, guid: 5a6042c8aa5214446a7d83ee02d45fa5, type: 3}
   m_spawnPoint: {fileID: 4431180547591092872}
   TrashThrowPoint: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 240056670505278872}
   - component: {fileID: 6008284182981856191}
   m_Layer: 0
-  m_Name: ThrowPoint
+  m_Name: TrashSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
