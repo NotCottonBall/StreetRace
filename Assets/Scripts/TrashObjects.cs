@@ -7,11 +7,8 @@ using UnityEngine.Analytics;
 public class TrashObjects : MonoBehaviour
 {
     public int TrashStored = 0;
-    public float ThrowForce = 6000.0f;
+    public float ThrowForce = 8000.0f;
     public GameObject trashObjectPrefab;
-
-    [Space]
-    [SerializeField] private Camera m_camera;
 
     [Space]
     [SerializeField] private Transform m_spawnPoint;
@@ -55,7 +52,7 @@ public class TrashObjects : MonoBehaviour
                 trashProjectile.AddComponent<Rigidbody>();
                 trashProjectile.tag = "Untagged";
                 
-                Vector3 direction = (m_camera.transform.forward).normalized;
+                Vector3 direction = (transform.forward).normalized;
                 
                 Rigidbody rb = trashProjectile.GetComponent<Rigidbody>();
                 if(rb == null)
