@@ -50,7 +50,8 @@ public class TrashObjects : MonoBehaviour
                     Quaternion.identity
                 );
                 trashProjectile.AddComponent<Rigidbody>();
-                trashProjectile.tag = "Untagged";
+                trashProjectile.tag = "Projectile";
+                trashProjectile.GetComponent<Collider>().isTrigger = false;
                 
                 Vector3 direction = (transform.forward).normalized;
                 

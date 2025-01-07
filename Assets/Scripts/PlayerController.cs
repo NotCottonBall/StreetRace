@@ -150,7 +150,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         PlayerCurrentSpeed -= PlayerSpeedDecay * Time.deltaTime;
         PlayerCurrentSpeed = Mathf.Max(PlayerCurrentSpeed, 500.0f);
-        Debug.Log("Speed Reduced");
         isDecaying = false;
     }
 

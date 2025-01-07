@@ -1,9 +1,19 @@
+using System.Collections;
 using UnityEngine;
 
 public class OpponentAI : MonoBehaviour
 {
-    public float OpponentSpeed = 1000.0f;
+    public float OpponentSpeed = 10.0f;
+    private float OpponentMaxSpeed;
     public float OpponentLookSpeed = 100.0f;
+    public float OpponentMinSpeed = 2.0f;
+
+    [Space]
+    public int OpponentHealth = 100;
+    private int OpponentMaxHealth = 100;
+    public float HealthIncreaseAfter = 2.5f;
+    public int HealthDecreaseAmount = 30;
+    private bool increasingHealth = false;
     
     [Space]
     [SerializeField] private Transform[] m_checkpoints;
@@ -17,11 +27,25 @@ public class OpponentAI : MonoBehaviour
     void Start()
     {
         SetNewCheckpoint();
+        OpponentMaxSpeed = OpponentSpeed;
+        OpponentMaxHealth = OpponentHealth;
     }
 
     void Update()
     {
         MoveTowardsPosition();
+
+        if(OpponentHealth <= 0)
+        {
+            OpponentSpeed = OpponentMinSpeed;
+            if(!increasingHealth)
+            { StartCoroutine(IncreaseHealthAfter(HealthIncreaseAfter)); }
+        }
+        else
+        {
+            OpponentSpeed = OpponentMaxSpeed;
+            OpponentSpeed = Mathf.Min(OpponentSpeed, OpponentMaxSpeed);
+        }
     }
 
 
@@ -55,5 +79,13 @@ public class OpponentAI : MonoBehaviour
             { m_currentCheckpointIndex = 0; }
             SetNewCheckpoint();
         }
+    }
+
+    IEnumerator IncreaseHealthAfter(float time)
+    {
+        increasingHealth = true;
+        yield return new WaitForSeconds(time);
+        OpponentHealth += OpponentMaxHealth;
+        increasingHealth = false;
     }
 }

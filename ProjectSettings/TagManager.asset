@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Trash
+  - Projectile
+  - Opponent
   layers:
   - Default
   - TransparentFX

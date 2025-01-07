@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1489126987555559578}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,6 @@ MonoBehaviour:
   ThrowForce: 8000
   trashObjectPrefab: {fileID: 1525374596489840616, guid: 5a6042c8aa5214446a7d83ee02d45fa5, type: 3}
   m_spawnPoint: {fileID: 4431180547591092872}
-  TrashThrowPoint: {fileID: 0}
   m_trashStoredText: {fileID: 0}
 --- !u!1 &5979511339805861314
 GameObject:
