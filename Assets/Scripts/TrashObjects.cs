@@ -10,9 +10,13 @@ public class TrashObjects : MonoBehaviour
     public float ThrowForce = 6000.0f;
     public GameObject trashObjectPrefab;
 
-    [SerializeField] private Transform m_spawnPoint;
-    public Transform TrashThrowPoint;
+    [Space]
+    [SerializeField] private Camera m_camera;
 
+    [Space]
+    [SerializeField] private Transform m_spawnPoint;
+
+    [Space]
     [SerializeField] private TextMeshProUGUI m_trashStoredText;
 
 
@@ -23,18 +27,35 @@ public class TrashObjects : MonoBehaviour
 
     void Update()
     {
+        ThrowTrash();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Trash"))
+        {
+            TrashStored++;
+            m_trashStoredText.text = TrashStored.ToString();
+            Destroy(other.gameObject);
+        }
+    }
+
+
+    // FUNCTIONS //
+    void ThrowTrash()
+    {
         if(Input.GetButtonDown("Fire1"))
         {
             if(TrashStored > 0)
             {
                 GameObject trashProjectile = Instantiate(
-                    trashObjectPrefab, m_spawnPoint.position, Quaternion.identity
+                    trashObjectPrefab, m_spawnPoint.position,
+                    Quaternion.identity
                 );
                 trashProjectile.AddComponent<Rigidbody>();
                 trashProjectile.tag = "Untagged";
                 
-                Vector3 direction = 
-                    (TrashThrowPoint.position - m_spawnPoint.position).normalized;
+                Vector3 direction = (m_camera.transform.forward).normalized;
                 
                 Rigidbody rb = trashProjectile.GetComponent<Rigidbody>();
                 if(rb == null)
@@ -48,16 +69,6 @@ public class TrashObjects : MonoBehaviour
                 TrashStored--;
                 m_trashStoredText.text = TrashStored.ToString();
             }
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Trash"))
-        {
-            TrashStored++;
-            m_trashStoredText.text = TrashStored.ToString();
-            Destroy(other.gameObject);
         }
     }
 }

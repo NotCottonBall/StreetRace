@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
     {
         m_keyToPressText.text = "";
         foreach(KeyCode key in m_keyCodesToPress)
-        { m_keyToPressText.text += key.ToString() + " "; }
+        { m_keyToPressText.text += key.ToString() + "  "; }
     }
 
     void applyPenalty()
