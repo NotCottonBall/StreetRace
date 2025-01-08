@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpponentAI : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class OpponentAI : MonoBehaviour
     public float OpponentMinSpeed = 2.0f;
 
     [Space]
+    [SerializeField] Slider HealthBarSlider;
     public int OpponentHealth = 100;
-    private int OpponentMaxHealth = 100;
+    private int OpponentMaxHealth;
     public float HealthIncreaseAfter = 2.5f;
     public int HealthDecreaseAmount = 30;
     private bool increasingHealth = false;
@@ -29,6 +31,7 @@ public class OpponentAI : MonoBehaviour
         SetNewCheckpoint();
         OpponentMaxSpeed = OpponentSpeed;
         OpponentMaxHealth = OpponentHealth;
+        SetHealthBar();
     }
 
     void Update()
@@ -86,6 +89,28 @@ public class OpponentAI : MonoBehaviour
         increasingHealth = true;
         yield return new WaitForSeconds(time);
         OpponentHealth += OpponentMaxHealth;
+        SetHealthBar();
         increasingHealth = false;
+    }
+
+    void SetHealthBar()
+    {
+        HealthBarSlider.gameObject.SetActive(
+            OpponentHealth < OpponentMaxHealth
+        );
+
+        HealthBarSlider.value =
+            (float)OpponentHealth / (float)OpponentMaxHealth;
+    }
+
+
+    // SET GET FUNCTIONS //
+    public void TakeDamage()
+    {
+        OpponentHealth -= HealthDecreaseAmount;
+        SetHealthBar();
+        OpponentHealth = Mathf.Max(
+            OpponentHealth, 0
+        );
     }
 }

@@ -962,7 +962,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376006059623237259, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: OpponentSpeed
@@ -1012,6 +1036,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4470,7 +4498,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376006059623237259, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: 'm_checkpoints.Array.data[0]'
@@ -4512,6 +4564,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5855,6 +5911,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: OpponentSpeed
       value: 8
@@ -5903,6 +5983,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10782,7 +10866,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376006059623237259, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: OpponentSpeed
@@ -10832,6 +10940,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13001,7 +13113,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376006059623237259, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: OpponentSpeed
@@ -13051,6 +13187,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14915,6 +15055,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 520081300}
     - target: {fileID: 1489126987555559578, guid: 0ddc75c84ce36c74590ac38a8d314e45, type: 3}
+      propertyPath: TrashStored
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489126987555559578, guid: 0ddc75c84ce36c74590ac38a8d314e45, type: 3}
       propertyPath: m_trashStoredText
       value: 
       objectReference: {fileID: 1827198872}
@@ -15021,7 +15165,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1376006059623237259, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3987975079811168787, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499317674616341029, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680930455257440470, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5196723695873831152, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465414421064562358, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072060851098131967, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
       propertyPath: OpponentSpeed
@@ -15071,6 +15239,10 @@ PrefabInstance:
       propertyPath: 'm_checkpoints.Array.data[9]'
       value: 
       objectReference: {fileID: 249710770}
+    - target: {fileID: 7335416432502086750, guid: 414b4bb1420c2ad42af84a2c5ca0ee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

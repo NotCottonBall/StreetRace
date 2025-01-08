@@ -10,13 +10,8 @@ public class TrashProjectile : MonoBehaviour
         {
             OpponentAI opponent =
                 collision.collider.GetComponent<OpponentAI>(); 
-
-            opponent.OpponentHealth -= opponent.HealthDecreaseAmount;
-            opponent.OpponentHealth = Mathf.Max(
-                opponent.OpponentHealth, 0
-            );
+            opponent.TakeDamage();
         }
-        
         if(!collision.collider.CompareTag("Player"))
         { Destroy(gameObject); }
     }
