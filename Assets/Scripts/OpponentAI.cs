@@ -1,16 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class OpponentAI : MonoBehaviour
 {
+    [SerializeField] private Animator m_animator;
+
+    [Space]
     public float OpponentSpeed = 10.0f;
     private float OpponentMaxSpeed;
     public float OpponentLookSpeed = 100.0f;
     public float OpponentMinSpeed = 2.0f;
 
     [Space]
-    [SerializeField] Slider HealthBarSlider;
+    [SerializeField] UnityEngine.UI.Slider HealthBarSlider;
     public int OpponentHealth = 100;
     private int OpponentMaxHealth;
     public float HealthIncreaseAfter = 2.5f;
@@ -49,6 +53,11 @@ public class OpponentAI : MonoBehaviour
             OpponentSpeed = OpponentMaxSpeed;
             OpponentSpeed = Mathf.Min(OpponentSpeed, OpponentMaxSpeed);
         }
+
+        m_animator.SetBool("isRunning", (OpponentSpeed >= 0.0f));
+        m_animator.SetFloat(
+            "SpeedMultiplier", (OpponentSpeed / OpponentMaxSpeed) - 2
+        );
     }
 
 
@@ -113,4 +122,7 @@ public class OpponentAI : MonoBehaviour
             OpponentHealth, 0
         );
     }
+
+    public int GetCurrentCheckpoint()
+    { return m_currentCheckpointIndex; }
 }

@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Animator m_animator;
+
+    [Space]
     public float PlayerCurrentSpeed;
     public float PlayerRunSpeed = 1000.0f;
     public float PlayerMaxSpeed = 1500.0f;
@@ -19,6 +23,10 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeedDecayTimeout = 0.1f;
     public float PlayerSpeedPenalty = 300.0f;
     private bool isDecaying = false;
+
+    // [Space]
+    // [SerializeField] private Transform[] m_checkpoints;
+    // private int m_currentCheckpointIndex = 0;
 
     [Space]
     public float MouseSensitivity = 1.0f;
@@ -54,7 +62,6 @@ public class PlayerController : MonoBehaviour
         UpdateKeyToPressText();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // m_keyToPressText.text = m_keyCodesToPress.Peek().ToString() + "";
@@ -89,7 +96,12 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         movePlayer();
+        m_animator.SetFloat(
+            "SpeedMultiplier",
+            PlayerCurrentSpeed / PlayerMaxSpeed
+        );
     }
+
 
     // FUNCTIONS //
     void moveCamera()
@@ -114,6 +126,8 @@ public class PlayerController : MonoBehaviour
         UnityEngine.Vector3 moveDir = new UnityEngine.Vector3(
             hMove, 0.0f, vMove
         ).normalized * PlayerCurrentSpeed * Time.deltaTime;
+
+        m_animator.SetBool("isRunning", (moveDir.magnitude >= 0.1));
 
         m_playerRB.AddForce(
             transform.TransformDirection(moveDir), ForceMode.Force
