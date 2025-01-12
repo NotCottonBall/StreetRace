@@ -60,7 +60,7 @@ public class TrashObjects : MonoBehaviour
                 { Debug.LogError("No Rigidbody Found On GameObject!"); }
 
                 rb.AddForce(
-                    direction * ThrowForce * Time.deltaTime,
+                    direction * (ThrowForce * Time.deltaTime),
                     ForceMode.Impulse
                 );
 
