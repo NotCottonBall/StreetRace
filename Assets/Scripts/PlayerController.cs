@@ -85,11 +85,11 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKeyDown(m_keyCodesToPress.Peek()))
             {
-                m_wrongClickPanel.SetActive(false);
                 PlayerCurrentSpeed += PlayerSpeedBoost * Time.deltaTime;
                 PlayerCurrentSpeed =
                     Mathf.Min(PlayerCurrentSpeed, PlayerMaxSpeed);
                 m_keyCodesToPress.Dequeue();
+                m_audioSource.PlayOneShot(m_clickCorrectClip);
                 PickRandomKey();
                 UpdateKeyToPressText();
             }
@@ -102,7 +102,9 @@ public class PlayerController : MonoBehaviour
             )
             {
                 applyPenalty();
+                m_audioSource.PlayOneShot(m_clickWrongClip);
                 m_wrongClickPanel.SetActive(true);
+                StartCoroutine(DisableWrongClickPanel());
             }
         }
         else if(!Input.anyKeyDown && !isDecaying)
@@ -174,6 +176,12 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(0.5F);
         Destroy(m_countDownText.gameObject);
+    }
+
+    IEnumerator DisableWrongClickPanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_wrongClickPanel.SetActive(false);
     }
 
 
