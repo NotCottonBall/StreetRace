@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3843102385020878087}
   - component: {fileID: 2036610194606078161}
   - component: {fileID: 7290924843057922083}
+  - component: {fileID: 7007826892560505611}
   - component: {fileID: 953775012498072980}
   - component: {fileID: 1489126987555559578}
   - component: {fileID: 1129811357793368888}
@@ -166,6 +167,103 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!82 &7007826892560505611
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4912119227876788988}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1f10644ac16062f40a13e77c947b65bb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &953775012498072980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,12 +284,17 @@ MonoBehaviour:
   PlayerSpeedDecay: 500
   PlayerSpeedDecayTimeout: 0.1
   PlayerSpeedPenalty: 300
+  PlayerPositionScore: 0
+  m_raceManager: {fileID: 0}
   MouseSensitivity: 1
   m_playerCamera: {fileID: 0}
   m_cameraOffset: {fileID: 3769535490380754005}
   m_keyToPressText: {fileID: 0}
   m_speedText: {fileID: 0}
   m_speedSB: {fileID: 0}
+  m_countDownText: {fileID: 0}
+  m_pauseMenuPanel: {fileID: 0}
+  m_audioSource: {fileID: 0}
 --- !u!114 &1489126987555559578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +312,9 @@ MonoBehaviour:
   trashObjectPrefab: {fileID: 1525374596489840616, guid: 5a6042c8aa5214446a7d83ee02d45fa5, type: 3}
   m_spawnPoint: {fileID: 4431180547591092872}
   m_trashStoredText: {fileID: 0}
+  m_audioSource: {fileID: 0}
+  m_throwAudioClip: {fileID: 0}
+  m_pickupAudioClip: {fileID: 0}
 --- !u!114 &1129811357793368888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,18 +335,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Checkpoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_positionText: {fileID: 0}
+  m_oneLap: 66
+  m_playerPositionUI: {fileID: 0}
+  m_playerLapText: {fileID: 0}
+  m_winPanel: {fileID: 0}
+  m_winText: {fileID: 0}
 --- !u!1 &5979511339805861314
 GameObject:
   m_ObjectHideFlags: 0

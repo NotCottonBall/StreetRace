@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Numerics;
 using TMPro;
 using UnityEditor.Animations;
@@ -52,9 +53,12 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField] private TextMeshProUGUI m_countDownText;
     [SerializeField] private GameObject m_pauseMenuPanel;
+    [SerializeField] private GameObject m_wrongClickPanel;
 
     [Space]
     [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_clickCorrectClip;
+    [SerializeField] private AudioClip m_clickWrongClip;
 
 
     void Start()
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
         {
             if(Input.GetKeyDown(m_keyCodesToPress.Peek()))
             {
+                m_wrongClickPanel.SetActive(false);
                 PlayerCurrentSpeed += PlayerSpeedBoost * Time.deltaTime;
                 PlayerCurrentSpeed =
                     Mathf.Min(PlayerCurrentSpeed, PlayerMaxSpeed);
@@ -95,7 +100,10 @@ public class PlayerController : MonoBehaviour
                     Input.GetKeyDown(KeyCode.V) ||
                     Input.GetKeyDown(KeyCode.B)
             )
-            { applyPenalty(); }
+            {
+                applyPenalty();
+                m_wrongClickPanel.SetActive(true);
+            }
         }
         else if(!Input.anyKeyDown && !isDecaying)
         { StartCoroutine(speedDecayTimer(PlayerSpeedDecayTimeout)); }
