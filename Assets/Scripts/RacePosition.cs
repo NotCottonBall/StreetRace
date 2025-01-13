@@ -25,6 +25,6 @@ public class RacePosition : MonoBehaviour
 
         int playerPosition =
             Racers.IndexOf(gameObject) + 1;
-        m_playerPositionUI.text = playerPosition.ToString();
+        m_playerPositionUI.text = $"{playerPosition.ToString()} / {Racers.Count}";
     }
 }
