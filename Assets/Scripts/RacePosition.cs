@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -6,9 +7,23 @@ using UnityEngine;
 public class RacePosition : MonoBehaviour
 {
     public List<GameObject> Racers;
+    [Description("no of checkpoints per lap.")]
+    [SerializeField] private int m_oneLap = 66;
 
     [Space]
     [SerializeField] private TextMeshProUGUI m_playerPositionUI;
+    [SerializeField] private TextMeshProUGUI m_playerLapText;
+    [SerializeField] private GameObject m_winPanel;
+    [SerializeField] private TextMeshProUGUI m_winText;
+
+    [Space]
+    private bool opponentWin = false;
+    private bool playerWin = false;
+
+    void Start()
+    {
+        m_winPanel.SetActive(false);
+    }
 
     void Update()
     {
@@ -25,6 +40,35 @@ public class RacePosition : MonoBehaviour
 
         int playerPosition =
             Racers.IndexOf(gameObject) + 1;
-        m_playerPositionUI.text = $"{playerPosition.ToString()} / {Racers.Count}";
+        m_playerPositionUI.text =
+            $"{playerPosition.ToString()} / {Racers.Count}";
+
+        m_playerLapText.text = "LAP: " +
+            (gameObject.GetComponent<PlayerController>()
+            .PlayerPositionScore / m_oneLap).ToString();
+        
+        foreach(GameObject racer in Racers)
+        {
+            if(racer.GetComponent<OpponentAI>() != null)
+            {
+                if(racer.GetComponent<OpponentAI>()
+                    .PositionScore > (m_oneLap * 2)
+                )
+                {
+                    m_winPanel.SetActive(true);
+                    m_winText.text = "THE OPPONENT WON!\n YOU LOOSER!";
+                }
+            }
+            else if(racer.GetComponent<PlayerController>() != null)
+            {
+                if(racer.GetComponent<PlayerController>()
+                    .PlayerPositionScore > (m_oneLap * 2)
+                )
+                {
+                    m_winPanel.SetActive(true);
+                    m_winText.text = "DAMN! YOU WON!!!";
+                }
+            }
+        }
     }
 }
