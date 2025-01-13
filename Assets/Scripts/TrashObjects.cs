@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.EventSystems;
 
 public class TrashObjects : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class TrashObjects : MonoBehaviour
     [Space]
     [SerializeField] private TextMeshProUGUI m_trashStoredText;
 
+    [Space]
+    [SerializeField] private AudioSource m_audioSource;
+    [SerializeField] private AudioClip m_throwAudioClip;
+    [SerializeField] private AudioClip m_pickupAudioClip;
+
 
     void Start()
     {
@@ -24,6 +30,8 @@ public class TrashObjects : MonoBehaviour
 
     void Update()
     {
+        if(EventSystem.current.IsPointerOverGameObject())
+        { return; }
         ThrowTrash();
     }
 
@@ -32,6 +40,8 @@ public class TrashObjects : MonoBehaviour
         if(other.CompareTag("Trash"))
         {
             TrashStored++;
+            m_audioSource.clip = m_pickupAudioClip;
+            m_audioSource.Play();
             m_trashStoredText.text = TrashStored.ToString();
             Destroy(other.gameObject);
         }
@@ -58,6 +68,9 @@ public class TrashObjects : MonoBehaviour
                 Rigidbody rb = trashProjectile.GetComponent<Rigidbody>();
                 if(rb == null)
                 { Debug.LogError("No Rigidbody Found On GameObject!"); }
+
+                m_audioSource.clip = m_throwAudioClip;
+                m_audioSource.Play();
 
                 rb.AddForce(
                     direction * (ThrowForce * Time.deltaTime),

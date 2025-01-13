@@ -52,6 +52,8 @@ public class RacePosition : MonoBehaviour
                 )
                 {
                     m_winPanel.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     m_winText.text = "THE OPPONENT WON!\n YOU LOOSER!";
                     Time.timeScale = 0.0f;
                 }
@@ -63,6 +65,8 @@ public class RacePosition : MonoBehaviour
                 )
                 {
                     m_winPanel.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
                     m_winText.text = "DAMN! YOU WON!!!";
                     Time.timeScale = 0.0f;
                 }

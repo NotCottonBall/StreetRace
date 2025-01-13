@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_countDownText;
     [SerializeField] private GameObject m_pauseMenuPanel;
 
+    [Space]
+    [SerializeField] private AudioSource m_audioSource;
+
 
     void Start()
     {
