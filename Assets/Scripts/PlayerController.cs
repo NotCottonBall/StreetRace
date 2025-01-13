@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DisableWrongClickPanel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         m_wrongClickPanel.SetActive(false);
     }
 
