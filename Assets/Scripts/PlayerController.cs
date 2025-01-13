@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_speedText;
     [SerializeField] private Slider m_speedSB;
 
-
     [Space]
     [SerializeField] private TextMeshProUGUI m_countDownText;
+    [SerializeField] private GameObject m_pauseMenuPanel;
 
 
     void Start()
