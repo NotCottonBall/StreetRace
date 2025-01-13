@@ -16,10 +16,6 @@ public class RacePosition : MonoBehaviour
     [SerializeField] private GameObject m_winPanel;
     [SerializeField] private TextMeshProUGUI m_winText;
 
-    [Space]
-    private bool opponentWin = false;
-    private bool playerWin = false;
-
     void Start()
     {
         m_winPanel.SetActive(false);
@@ -57,6 +53,7 @@ public class RacePosition : MonoBehaviour
                 {
                     m_winPanel.SetActive(true);
                     m_winText.text = "THE OPPONENT WON!\n YOU LOOSER!";
+                    Time.timeScale = 0.0f;
                 }
             }
             else if(racer.GetComponent<PlayerController>() != null)
@@ -67,6 +64,7 @@ public class RacePosition : MonoBehaviour
                 {
                     m_winPanel.SetActive(true);
                     m_winText.text = "DAMN! YOU WON!!!";
+                    Time.timeScale = 0.0f;
                 }
             }
         }

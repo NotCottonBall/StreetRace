@@ -227,12 +227,12 @@ Transform:
   m_LocalScale: {x: 0.79760724, y: 0.79760724, z: 0.79760724}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1112351268}
   - {fileID: 615766771}
-  - {fileID: 117561702}
   - {fileID: 1194254324}
   - {fileID: 844380023}
   - {fileID: 919304616}
+  - {fileID: 1112351268}
+  - {fileID: 117561702}
   - {fileID: 157037247}
   m_Father: {fileID: 1004782844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -344,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -143, y: -185}
-  m_SizeDelta: {x: 400.8721, y: 193.3741}
+  m_AnchoredPosition: {x: -144, y: -182}
+  m_SizeDelta: {x: 400.8721, y: 115.3257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155180662
 MonoBehaviour:
@@ -1359,7 +1359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &805376841
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1996,7 +1996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N  E  W
+  m_text: F  T  B
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2581,7 +2581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1233337048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2952,10 +2952,10 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'TRASH
 
-    This is how much trash you have on you.
+    Collect trash from the ground.
 
-    you need to collect
-    trash and throw them on your opponents multiple times to slow them down'
+    Use them to throw on your
+    opponents'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 653a5198e24c8c14c9e4a672a7588f37, type: 2}
   m_sharedMaterial: {fileID: -4652589175999500393, guid: 653a5198e24c8c14c9e4a672a7588f37, type: 2}
@@ -3611,7 +3611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2025298509
 RectTransform:
   m_ObjectHideFlags: 0
