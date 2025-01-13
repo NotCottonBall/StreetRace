@@ -50,8 +50,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Slider m_speedSB;
 
 
+    [Space]
+    [SerializeField] private TextMeshProUGUI m_countDownText;
+
+
     void Start()
     {
+        Time.timeScale = 0.0f;
+        StartCoroutine(StartCountdown());
+        
+
         Cursor.lockState = CursorLockMode.Locked;
 
         m_playerRB = GetComponent<Rigidbody>();
@@ -138,6 +146,23 @@ public class PlayerController : MonoBehaviour
         m_playerRB.AddForce(
             transform.TransformDirection(moveDir), ForceMode.Force
         );
+    }
+
+    IEnumerator StartCountdown()
+    {
+        int countdownTime = 3;
+        while(countdownTime > 0)
+        {
+            m_countDownText.text = countdownTime.ToString();
+            yield return new WaitForSecondsRealtime(1F);
+            countdownTime--;
+        }
+
+        m_countDownText.text = "GO!";
+        Time.timeScale = 1.0f;
+
+        yield return new WaitForSecondsRealtime(0.5F);
+        Destroy(m_countDownText.gameObject);
     }
 
 
