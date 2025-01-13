@@ -52,8 +52,8 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     [SerializeField] private TextMeshProUGUI m_countDownText;
-    [SerializeField] private GameObject m_pauseMenuPanel;
     [SerializeField] private GameObject m_wrongClickPanel;
+    [SerializeField] private TextMeshProUGUI m_currentModeText;
 
     [Space]
     [SerializeField] private AudioSource m_audioSource;
@@ -64,8 +64,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0.0f;
+        m_countDownText.gameObject.SetActive(true);
         StartCoroutine(StartCountdown());
-        
 
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -227,5 +227,47 @@ public class PlayerController : MonoBehaviour
         m_speedSB.value = Mathf.Lerp(
             m_speedSB.value, PlayerCurrentSpeed / PlayerMaxSpeed, 2.5f
         );
+    }
+
+    public void ModeEasy()
+    {
+        PlayerSpeedDecay = 500.0f;
+        PlayerSpeedDecayTimeout = 0.1f;
+        PlayerSpeedPenalty = 300.0f;
+
+        m_currentModeText.text = "EASY";
+    }
+
+    public void MediumMode()
+    {
+        PlayerSpeedDecay = 600.0f;
+        PlayerSpeedDecayTimeout = 0.05f;
+        PlayerSpeedPenalty = 600.0f;
+
+        PlayerSpeedBoost = 15000;
+
+        m_currentModeText.text = "MEDIUM";
+    }
+
+    public void NotEasyMode()
+    {
+        PlayerSpeedDecay = 700.0f;
+        PlayerSpeedDecayTimeout = 0.025f;
+        PlayerSpeedPenalty = 900.0f;
+
+        PlayerSpeedBoost = 10000;
+
+        m_currentModeText.text = "NOT EASY";
+    }
+
+    public void TypeMaster()
+    {
+        PlayerSpeedDecay = 1000.0f;
+        PlayerSpeedDecayTimeout = 0.02f;
+        PlayerSpeedPenalty = PlayerRunSpeed;
+
+        PlayerSpeedBoost = 15000;
+
+        m_currentModeText.text = "HUH...";
     }
 }
