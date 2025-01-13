@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     public float PlayerSpeedPenalty = 300.0f;
     private bool isDecaying = false;
 
-    // [Space]
-    // [SerializeField] private Transform[] m_checkpoints;
-    // private int m_currentCheckpointIndex = 0;
+    [Space]
+    public int PlayerPositionScore = 0;
+    public RacePosition m_raceManager;
 
     [Space]
     public float MouseSensitivity = 1.0f;
@@ -100,6 +100,12 @@ public class PlayerController : MonoBehaviour
             "SpeedMultiplier",
             PlayerCurrentSpeed / PlayerMaxSpeed
         );
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Checkpoint"))
+        { PlayerPositionScore++; }
     }
 
 

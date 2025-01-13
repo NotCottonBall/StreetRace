@@ -24,6 +24,8 @@ public class OpponentAI : MonoBehaviour
     [Space]
     [SerializeField] private Transform[] m_checkpoints;
     private int m_currentCheckpointIndex = 0;
+    public int PositionScore;
+    public RacePosition m_raceManager;
 
     [Space]
     private Vector3 m_targetPosition;
@@ -60,6 +62,12 @@ public class OpponentAI : MonoBehaviour
         );
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Checkpoint"))
+        { PositionScore++; }
+    }
+
 
     // Fucntions //
     void SetNewCheckpoint()
@@ -87,6 +95,7 @@ public class OpponentAI : MonoBehaviour
         if(Vector3.Distance(transform.position, m_targetPosition) < 1f)
         {
             m_currentCheckpointIndex++;
+            PositionScore++;
             if(m_currentCheckpointIndex >= m_checkpoints.Length)
             { m_currentCheckpointIndex = 0; }
             SetNewCheckpoint();
