@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Numerics;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -72,7 +71,7 @@ public class PlayerController : MonoBehaviour
         m_playerRB = GetComponent<Rigidbody>();
         PlayerCurrentSpeed = PlayerRunSpeed;
 
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         { PickRandomKey(); }
         UpdateKeyToPressText();
     }
@@ -81,9 +80,9 @@ public class PlayerController : MonoBehaviour
     {
         // m_keyToPressText.text = m_keyCodesToPress.Peek().ToString() + "";
         UpdateKeyToPressText();
-        if(Input.anyKeyDown)
+        if (Input.anyKeyDown)
         {
-            if(Input.GetKeyDown(m_keyCodesToPress.Peek()))
+            if (Input.GetKeyDown(m_keyCodesToPress.Peek()))
             {
                 PlayerCurrentSpeed += PlayerSpeedBoost * Time.deltaTime;
                 PlayerCurrentSpeed =
@@ -93,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 PickRandomKey();
                 UpdateKeyToPressText();
             }
-            else if(Input.GetKeyDown(KeyCode.R) ||
+            else if (Input.GetKeyDown(KeyCode.R) ||
                     Input.GetKeyDown(KeyCode.T) ||
                     Input.GetKeyDown(KeyCode.F) ||
                     Input.GetKeyDown(KeyCode.G) ||
@@ -107,7 +106,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(DisableWrongClickPanel());
             }
         }
-        else if(!Input.anyKeyDown && !isDecaying)
+        else if (!Input.anyKeyDown && !isDecaying)
         { StartCoroutine(speedDecayTimer(PlayerSpeedDecayTimeout)); }
 
         moveCamera();
@@ -125,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Checkpoint"))
+        if (other.CompareTag("Checkpoint"))
         { PlayerPositionScore++; }
     }
 
@@ -164,7 +163,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator StartCountdown()
     {
         int countdownTime = 3;
-        while(countdownTime > 0)
+        while (countdownTime > 0)
         {
             m_countDownText.text = countdownTime.ToString();
             yield return new WaitForSecondsRealtime(1F);
@@ -197,7 +196,7 @@ public class PlayerController : MonoBehaviour
     void UpdateKeyToPressText()
     {
         m_keyToPressText.text = "";
-        foreach(KeyCode key in m_keyCodesToPress)
+        foreach (KeyCode key in m_keyCodesToPress)
         { m_keyToPressText.text += key.ToString() + "  "; }
     }
 
@@ -231,18 +230,20 @@ public class PlayerController : MonoBehaviour
 
     public void ModeEasy()
     {
-        PlayerSpeedDecay = 500.0f;
+        PlayerSpeedDecay = 250.0f;
         PlayerSpeedDecayTimeout = 0.1f;
-        PlayerSpeedPenalty = 300.0f;
+        PlayerSpeedPenalty = 150.0f;
+
+        PlayerSpeedBoost = 20000;
 
         m_currentModeText.text = "EASY";
     }
 
     public void MediumMode()
     {
-        PlayerSpeedDecay = 600.0f;
-        PlayerSpeedDecayTimeout = 0.05f;
-        PlayerSpeedPenalty = 600.0f;
+        PlayerSpeedDecay = 400.0f;
+        PlayerSpeedDecayTimeout = 0.1f;
+        PlayerSpeedPenalty = 300.0f;
 
         PlayerSpeedBoost = 15000;
 
@@ -251,11 +252,11 @@ public class PlayerController : MonoBehaviour
 
     public void NotEasyMode()
     {
-        PlayerSpeedDecay = 700.0f;
-        PlayerSpeedDecayTimeout = 0.025f;
-        PlayerSpeedPenalty = 900.0f;
+        PlayerSpeedDecay = 600.0f;
+        PlayerSpeedDecayTimeout = 0.05f;
+        PlayerSpeedPenalty = 500.0f;
 
-        PlayerSpeedBoost = 10000;
+        PlayerSpeedBoost = 12000;
 
         m_currentModeText.text = "NOT EASY";
     }

@@ -9,6 +9,7 @@ public class RacePosition : MonoBehaviour
     public List<GameObject> Racers;
     [Description("no of checkpoints per lap.")]
     [SerializeField] private int m_oneLap = 66;
+    [SerializeField] private int m_winLap = 2;
 
     [Space]
     [SerializeField] private TextMeshProUGUI m_playerPositionUI;
@@ -42,13 +43,13 @@ public class RacePosition : MonoBehaviour
         m_playerLapText.text = "LAP: " +
             (gameObject.GetComponent<PlayerController>()
             .PlayerPositionScore / m_oneLap).ToString();
-        
-        foreach(GameObject racer in Racers)
+
+        foreach (GameObject racer in Racers)
         {
-            if(racer.GetComponent<OpponentAI>() != null)
+            if (racer.GetComponent<OpponentAI>() != null)
             {
-                if(racer.GetComponent<OpponentAI>()
-                    .PositionScore > (m_oneLap * 2)
+                if (racer.GetComponent<OpponentAI>()
+                    .PositionScore > (m_oneLap * m_winLap)
                 )
                 {
                     m_winPanel.SetActive(true);
@@ -58,10 +59,10 @@ public class RacePosition : MonoBehaviour
                     Time.timeScale = 0.0f;
                 }
             }
-            else if(racer.GetComponent<PlayerController>() != null)
+            else if (racer.GetComponent<PlayerController>() != null)
             {
-                if(racer.GetComponent<PlayerController>()
-                    .PlayerPositionScore > (m_oneLap * 2)
+                if (racer.GetComponent<PlayerController>()
+                    .PlayerPositionScore > (m_oneLap * m_winLap)
                 )
                 {
                     m_winPanel.SetActive(true);

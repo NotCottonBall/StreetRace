@@ -281,11 +281,11 @@ MonoBehaviour:
   PlayerRunSpeed: 1000
   PlayerMaxSpeed: 1500
   PlayerSpeedBoost: 20000
-  PlayerSpeedDecay: 500
+  PlayerSpeedDecay: 250
   PlayerSpeedDecayTimeout: 0.1
-  PlayerSpeedPenalty: 300
+  PlayerSpeedPenalty: 150
   PlayerPositionScore: 0
-  m_raceManager: {fileID: 0}
+  m_raceManager: {fileID: 1129811357793368888}
   MouseSensitivity: 1
   m_playerCamera: {fileID: 0}
   m_cameraOffset: {fileID: 3769535490380754005}
@@ -293,8 +293,11 @@ MonoBehaviour:
   m_speedText: {fileID: 0}
   m_speedSB: {fileID: 0}
   m_countDownText: {fileID: 0}
-  m_pauseMenuPanel: {fileID: 0}
+  m_wrongClickPanel: {fileID: 0}
+  m_currentModeText: {fileID: 0}
   m_audioSource: {fileID: 0}
+  m_clickCorrectClip: {fileID: 8300000, guid: 84dea137e9ec93c4ba021ae68124901c, type: 3}
+  m_clickWrongClip: {fileID: 8300000, guid: a436da6e54fd88645a9f82cbc9678f10, type: 3}
 --- !u!114 &1489126987555559578
 MonoBehaviour:
   m_ObjectHideFlags: 0
